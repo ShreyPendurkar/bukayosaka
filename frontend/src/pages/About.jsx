@@ -56,7 +56,7 @@ export default function About() {
           We strive to provide a robust, flexible foundation that can be adapted to any project domain—whether it's a bookstore, grocery platform, tech dashboard, or any other application you can imagine.
         </p>
         <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-          Our platform is engineered with React and styled with Tailwind CSS to ensure smooth, responsive, and modern user experiences. Authentication and roles are handled via Context API & JWT simulation, ensuring security without backend complexity.
+          Our platform is engineered with React and styled with Tailwind CSS to ensure smooth, responsive, and modern user experiences.
         </p>
       </div>
 

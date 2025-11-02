@@ -1,37 +1,33 @@
 import React, { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import { FaUser, FaKey, FaUserShield } from 'react-icons/fa';
 
 export default function Register() {
   const [form, setForm] = useState({ username: '', password: '', role: 'role1' });
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const { register, user } = useAuth();
-
-  if (user) navigate("/dashboard");
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setMessage('');
     setLoading(true);
     
-    const res = await register(form.username, form.password, form.role);
-    if (res.success) {
-      navigate('/dashboard');
-    } else {
-      setError(res.message || 'Registration failed. Please try again.');
-    }
-    setLoading(false);
+    // Simulate loading
+    setTimeout(() => {
+      setMessage('New account successfully registered.');
+      setLoading(false);
+    }, 1000);
   };
 
   return (
     <div className="max-w-sm mx-auto mt-24 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8">
       <h2 className="text-3xl font-bold mb-6 text-green-700 dark:text-green-400 text-center">Create Account</h2>
-      {error && <div className="text-red-500 text-center mb-4 font-semibold">{error}</div>}
+      {message && (
+        <div className="text-green-600 dark:text-green-400 text-center mb-4 font-semibold bg-green-50 dark:bg-green-900/30 p-3 rounded">
+          {message}
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="relative">
           <FaUser className="absolute left-3 top-3 text-gray-400 dark:text-gray-500" />
@@ -86,3 +82,4 @@ export default function Register() {
     </div>
   );
 }
+

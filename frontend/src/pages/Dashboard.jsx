@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
 import { FaBook, FaUsers, FaFileAlt, FaCheckCircle, FaClock, FaStar, FaChartLine, FaBell } from 'react-icons/fa';
 
 const statCards = [
@@ -24,17 +23,15 @@ const featuredItems = [
 ];
 
 export default function Dashboard() {
-  const { user } = useAuth();
-
   return (
     <section className="space-y-8">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-800 rounded-xl shadow-lg p-8 text-white">
         <h1 className="text-4xl font-extrabold mb-2">
-          Welcome back, {user?.username}! 👋
+          Welcome! 👋
       </h1>
         <p className="text-lg opacity-90">
-          You are logged in as <span className="font-semibold">{user?.role}</span>. Here's what's happening today.
+          Here's what's happening today.
         </p>
       </div>
 
